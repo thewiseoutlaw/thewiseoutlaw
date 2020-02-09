@@ -80,14 +80,18 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
-"Markdown support
+" Markdown support
 Plug 'gabrielelana/vim-markdown'
 
-"python support
+" python support
 Plug 'neovim/pynvim'
 Plug 'davidhalter/jedi'
 
-"Commenting
+" Commenting
 Plug 'tomtom/tcomment_vim'
 " Initialize plugin system
+
+"Ctrl p to search
+Plug 'kien/ctrlp.vim'
+
 call plug#end()

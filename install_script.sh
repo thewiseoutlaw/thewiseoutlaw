@@ -99,9 +99,12 @@ echo -e "${GREEN}Install ccrypt to encrypt files${NOCOLOR}"
 sudo apt-get install -y ccrypt
 # encrypt with ccrypt file
 # decrypt with ccdecrypt file
+go get -u github.com/sourcegraph/go-langserver
 sudo chown -R $USER:$USER ~/
 echo -e "${GREEN}switch to zsh, type zimfw install to install modules${NOCOLOR}"
 echo -e "${GREEN}NOTE: when starting nvim!${NOCOLOR}"
 echo -e "${GREEN}run :PlugInstall${NOCOLOR}"
 echo -e "${GREEN}run :CocInstall coc-python${NOCOLOR}"
+echo -e "${GREEN}run :CocInstall coc-java${NOCOLOR}"
+echo -e "${GREEN}run :CocInstall coc-go${NOCOLOR}"
 echo -e "${ORANGE} .zshrc changed vim to use nvim, cat to use bat${NOCOLOR}"
