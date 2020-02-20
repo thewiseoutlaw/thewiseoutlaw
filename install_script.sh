@@ -24,32 +24,32 @@ if (( $EUID == 0 )); then
   exit 1 
 fi
 
-echo -e "${GREEN}Add nevovim ppa${NOCOLOR}"
-sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo apt-get update
+echo -e "${GREEN}Snap install neovim${NOCOLOR}"
+sudo snap install neovim --classic
 
 echo -e "${GREEN}Install zsh and zim${NOCOLOR}"
-sudo apt-get install -y zsh
+sudo snap install zsh
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
 echo -e "${GREEN}Adding node 13.x ppa${NOCOLOR}"
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo snap install node --edge --classic
 
 echo -e "${GREEN}Changing default shell to zsh${NOCOLOR}"
 chsh -s /bin/zsh
 
 echo -e "${GREEN}Installing neovim with deps${NOCOLOR}"
-sudo apt-get install -y neovim
-sudo apt-get install -y python3-dev python3-pip
+#sudo apt-get install -y neovim
+#sudo apt-get install -y python3-dev python3-pip
 sudo pip3 install pynvim
 sudo npm install -g neovim
-sudo apt-get install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
-# needed for ruby neovim
-sudo apt-get install -y ruby ruby-dev ruby-full
+#sudo apt-get install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+#needed for ruby neovim
+echo -e "${GREEN}Installing ruby${NOCOLOR}"
+sudo snap install ruby --classic
+#sudo apt-get install -y ruby ruby-dev ruby-full
 sudo gem install neovim
 #needed for clipboard support
-sudo apt-get install -y xclip xsel
+#sudo apt-get install -y xclip xsel
 #needed for coc bash support
 sudo npm i -g bash-language-server
 #needed for dockerfile coc support
@@ -76,9 +76,7 @@ cp -r `pwd`/config/Pecan ~/.config/Pecan
 
 
 echo -e "${GREEN}Installing bat to replace cat${NOCOLOR}"
-wget https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-musl_0.12.1_amd64.deb
-sudo dpkg -i bat-musl_0.12.1_amd64.deb
-rm bat-musl_0.12.1_amd64.deb
+sudo snap install bat --classic
 
 echo -e "${GREEN}Install latest go via snap${NOCOLOR}"
 sudo snap install --classic go
@@ -96,7 +94,7 @@ sudo apt-get install -y fontconfig
 fc-cache -f -v
 #install ccyrpt
 echo -e "${GREEN}Install ccrypt to encrypt files${NOCOLOR}"
-sudo apt-get install -y ccrypt
+#sudo apt-get install -y ccrypt
 # encrypt with ccrypt file
 # decrypt with ccdecrypt file
 go get -u github.com/sourcegraph/go-langserver
